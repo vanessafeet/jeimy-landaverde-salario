@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Los salarios de Ana Belen y Mike Rosales + Calculadora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://i.pinimg.com/originals/be/14/1b/be141b5f8bfd10a522176b7c612b9fd0.gif') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            position: relative;
+            z-index: 0;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .container {
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+            box-sizing: border-box;
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f1f1f1;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .calculator {
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            width: 100%;
+            max-width: 350px;
+            user-select: none;
+        }
+
+        .screen {
+            width: 100%;
+            height: 50px;
+            text-align: right;
+            background-color: #222;
+            color: white;
+            font-size: 24px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .button {
+            padding: 20px;
+            font-size: 18px;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #ddd;
+        }
+
+        .button:active {
+            background-color: #ccc;
+        }
+
+        .button.operator {
+            background-color: #f77f00;
+            color: white;
+        }
+
+        .button.operator:hover {
+            background-color: #e66c00;
+        }
+
+        .button.equals {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .button.equals:hover {
+            background-color: #45a049;
+        }
+
+        .button.clear {
+            background-color: #e53935;
+            color: white;
+        }
+
+        .button.clear:hover {
+            background-color: #d32f2f;
+        }
+
+        h3 {
+            text-align: left;
+            width: 100%;
+            padding-left: 20px;
+        }
+
+        .business {
+            color: orange;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+            table {
+                font-size: 14px;
+                margin: 10px 0;
+            }
+            th, td {
+                padding: 8px;
+            }
+            .calculator {
+                width: 280px;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+            th, td {
+                padding: 6px;
+                font-size: 12px;
+            }
+            table {
+                font-size: 12px;
+                margin: 10px 0;
+            }
+            .calculator button {
+                font-size: 14px;
+                padding: 15px;
+            }
+            .calculator {
+                margin-top: 20px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="business">EL SALARIO DE JEIMY LANDAVERDE </h1>
+
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Valor</th>
+                    <th>Nombre</th>
+                    <th>Valor</th>
+                    <th>Nombre</th>
+                    <th>Valor</th>
+                    <th>Fecha</th>
+                    <th>Video Personalizado</th>
+                    <th>Minutos</th>
+                    <th>Método de Pago</th>
+                    <th>ENVIADO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>5</td>
+                    <td>Michel</td>
+                    <td>2.50</td>
+                    <td>Ana</td>
+                    <td>2.50</td>
+                    <td>07/23/2025</td>
+                    <td>LLAMADAVIDEO  </td>
+                    <td>10 MINUTOS</td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>3</td>
+                    <td>Michel</td>
+                    <td>1</td>
+                    <td>Ana</td>
+                    <td>1</td>
+                    <td>07/23/2025</td>
+                    <td>LLAMADAVIDEO  </td>
+                    <td>5 MINUTOS</td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>3</td>
+                    <td>Michel</td>
+                    <td>1</td>
+                    <td>Ana</td>
+                    <td>1</td>
+                    <td>07/24/2025</td>
+                    <td>LLAMADAVIDEO  </td>
+                    <td>5 MINUTOS</td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>5</td>
+                    <td>Michel</td>
+                    <td>2.5</td>
+                    <td>Ana</td>
+                    <td>2.5</td>
+                    <td>07/24/2025</td>
+                    <td>LLAMADAVIDEO  </td>
+                    <td>10 MINUTOS</td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>5</td>
+                    <td>Michel</td>
+                    <td>2.5</td>
+                    <td>Ana</td>
+                    <td>2.5</td>
+                    <td>07/24/2025</td>
+                    <td>LLAMADAVIDEO  </td>
+                    <td>10 MINUTOS</td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>5</td>
+                    <td>Michel</td>
+                    <td>2.5</td>
+                    <td>Ana</td>
+                    <td>2.5</td>
+                    <td>07/26/2025</td>
+                    <td>LLAMADAVIDEO  </td>
+                    <td>10 MINUTOS</td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>5</td>
+                    <td>Michel</td>
+                    <td>2.5</td>
+                    <td>Ana</td>
+                    <td>2.5</td>
+                    <td>07/28/2025</td>
+                    <td>LLAMADAVIDEO  </td>
+                    <td>10 MINUTOS</td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>5</td>
+                    <td>Michel</td>
+                    <td>2.5</td>
+                    <td>Ana</td>
+                    <td>2.5</td>
+                    <td>07/29/2025</td>
+                    <td>LLAMADAVIDEO  </td>
+                    <td>10 MINUTOS</td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>5</td>
+                    <td>Michel</td>
+                    <td>2.5</td>
+                    <td>Ana</td>
+                    <td>2.5</td>
+                    <td>07/29/2025</td>
+                    <td>LLAMADAVIDEO  </td>
+                    <td>10 MINUTOS</td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>5</td>
+                    <td>Michel</td>
+                    <td>0</td>
+                    <td>Ana</td>
+                    <td>0</td>
+                    <td>07/29/2025</td>
+                    <td>VIDEO PERSONALIZADO  </td>
+                    <td>5 MINUTOS</td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>5</td>
+                    <td>Michel</td>
+                    <td>2.50</td>
+                    <td>Ana</td>
+                    <td>2.50</td>
+                    <td>07/29/2025</td>
+                    <td>VIDEO PERSONALIZADO  </td>
+                    <td>10 MINUTOS</td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>3</td>
+                    <td>Michel</td>
+                    <td>1</td>
+                    <td>Ana</td>
+                    <td>1</td>
+                    <td>07/30/2025</td>
+                    <td>VIDEO PERSONALIZADO  </td>
+                    <td>5 MINUTOS</td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>5</td>
+                    <td>Michel</td>
+                    <td>2.50</td>
+                    <td>Ana</td>
+                    <td>2.50</td>
+                    <td>07/31/2025</td>
+                    <td>LLAMADAVIDEO  </td>
+                    <td>10 MINUTOS</td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>5</td>
+                    <td>Michel</td>
+                    <td>2.50</td>
+                    <td>Ana</td>
+                    <td>2.50</td>
+                    <td>07/31/2025</td>
+                    <td>LLAMADAVIDEO  </td>
+                    <td>10 MINUTOS</td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>5</td>
+                    <td>Michel</td>
+                    <td>2.50</td>
+                    <td>Ana</td>
+                    <td>2.50</td>
+                    <td>08/1/2025</td>
+                    <td>LLAMADAVIDEO  </td>
+                    <td>10 MINUTOS</td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>4</td>
+                    <td>Michel</td>
+                    <td>2.50</td>
+                    <td>Ana</td>
+                    <td>2.50</td>
+                    <td>08/2/2025</td>
+                    <td>VIDEO PERSONALIZADO </td>
+                    <td>5 MINUTOS AHEGAO FACE </td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>5</td>
+                    <td>Michel</td>
+                    <td>2.50</td>
+                    <td>Ana</td>
+                    <td>2.50</td>
+                    <td>08/3/2025</td>
+                    <td>LLAMADAVIDEO </td>
+                    <td>10 MINUTOS  </td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>4</td>
+                    <td>Michel</td>
+                    <td>0</td>
+                    <td>Ana</td>
+                    <td>0</td>
+                    <td>08/3/2025</td>
+                    <td>VIDEO PERSONALIZADO </td>
+                    <td>4 MINUTOS  </td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>4</td>
+                    <td>Michel</td>
+                    <td>0</td>
+                    <td>Ana</td>
+                    <td>0</td>
+                    <td>08/3/2025</td>
+                    <td>VIDEO PERSONALIZADO </td>
+                    <td>4 MINUTOS  </td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>4</td>
+                    <td>Michel</td>
+                    <td>0</td>
+                    <td>Ana</td>
+                    <td>0</td>
+                    <td>08/5/2025</td>
+                    <td>VIDEO PERSONALIZADO </td>
+                    <td>5 MINUTOS  </td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>5</td>
+                    <td>Michel</td>
+                    <td>0</td>
+                    <td>Ana</td>
+                    <td>0</td>
+                    <td>08/6/2025</td>
+                    <td>VIDEO PERSONALIZADO </td>
+                    <td>5 MINUTOS  </td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+                <tr>
+                    <td>Jeimy </td>
+                    <td>5</td>
+                    <td>Michel</td>
+                    <td>0</td>
+                    <td>Ana</td>
+                    <td>0</td>
+                    <td>08/6/2025</td>
+                    <td>VIDEO PERSONALIZADO </td>
+                    <td>5 MINUTOS  </td>
+                    <td>PAYPAL</td>
+                    <td>LISTO</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h1 class="business">JEIMY GANA 100 DOLARES </h1>
+
+    <h1>Ganancias y Porcentajes</h1>
+
+    <div class="btn-container" style="margin-bottom: 30px;">
+        <button data-index="0" class="active">5 dólares</button>
+        <button data-index="1">10 dólares</button>
+        <button data-index="2">15 dólares</button>
+        <button data-index="3">20 dólares</button>
+        <button data-index="4">30 dólares</button>
+        <button data-index="5">40 dólares</button>
+    </div>
+
+    <div class="table-responsive">
+        <table aria-label="Tabla de ganancias y porcentajes">
+            <thead>
+                <tr>
+                    <th>Persona</th>
+                    <th>Ganancia (USD)</th>
+                    <th>Porcentaje (%)</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-body"></tbody>
+        </table>
+    </div>
+
+    <div class="calculator">
+        <input type="text" class="screen" id="screen" disabled />
+        <div class="buttons">
+            <button class="button clear" onclick="clearScreen()">C</button>
+            <button class="button" onclick="appendToScreen('(')">(</button>
+            <button class="button" onclick="appendToScreen(')')">)</button>
+            <button class="button operator" onclick="appendToScreen('/')">÷</button>
+
+            <button class="button" onclick="appendToScreen('7')">7</button>
+            <button class="button" onclick="appendToScreen('8')">8</button>
+            <button class="button" onclick="appendToScreen('9')">9</button>
+            <button class="button operator" onclick="appendToScreen('*')">×</button>
+
+            <button class="button" onclick="appendToScreen('4')">4</button>
+            <button class="button" onclick="appendToScreen('5')">5</button>
+            <button class="button" onclick="appendToScreen('6')">6</button>
+            <button class="button operator" onclick="appendToScreen('-')">−</button>
+
+            <button class="button" onclick="appendToScreen('1')">1</button>
+            <button class="button" onclick="appendToScreen('2')">2</button>
+            <button class="button" onclick="appendToScreen('3')">3</button>
+            <button class="button operator" onclick="appendToScreen('+')">+</button>
+
+            <button class="button" onclick="appendToScreen('0')">0</button>
+            <button class="button" onclick="appendToScreen('.')">.</button>
+            <button class="button equals" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <h1 class="business">Ana y Mike los jefes responsables de la venta de los pies de Jeimy Landaverde.</h1>
+</div>
+
+<script>
+    const tablaBody = document.getElementById('tabla-body');
+    const botones = document.querySelectorAll('.btn-container button');
+
+    const data = [
+        { persona: 'Jeimy', ganancia: 50, porcentaje: 50 },
+        { persona: 'Michel', ganancia: 25, porcentaje: 25 },
+        { persona: 'Ana', ganancia: 25, porcentaje: 25 }
+    ];
+
+    const gananciasTotales = [5, 10, 15, 20, 30, 40];
+
+    function renderTable(index = 0) {
+        tablaBody.innerHTML = '';
+        const total = gananciasTotales[index];
+        data.forEach(({ persona, porcentaje }) => {
+            const ganancia = (total * porcentaje) / 100;
+            tablaBody.innerHTML += `
+                <tr>
+                    <td>${persona}</td>
+                    <td>${ganancia.toFixed(2)}</td>
+                    <td>${porcentaje}</td>
+                </tr>
+            `;
+        });
+    }
+
+    botones.forEach(btn => {
+        btn.addEventListener('click', () => {
+            botones.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderTable(parseInt(btn.dataset.index));
+        });
+    });
+
+    renderTable();
+
+    function appendToScreen(value) {
+        const screen = document.getElementById('screen');
+        screen.value += value;
+    }
+
+    function clearScreen() {
+        document.getElementById('screen').value = '';
+    }
+
+    function calculate() {
+        const screen = document.getElementById('screen');
+        try {
+            // eslint-disable-next-line no-eval
+            screen.value = eval(screen.value);
+        } catch (e) {
+            screen.value = 'Error';
+        }
+    }
+</script>
+
+</body>
+</html>
